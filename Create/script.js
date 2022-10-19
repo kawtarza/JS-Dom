@@ -1,47 +1,31 @@
-// /* Add a title attribute to every element that has the important class, stating This is an important item.  */
+// // Modify the script.js to create a new <section> with a random background-color for each learner in your group. This section should contain a paragraph with the name of the learner. Those sections should be appended in the <article>
+// // If the background is dark the text should be white, if the background is light the text should be black
+// // Find a way so that everytime you load the page the order of the elements changes!
 
-// const elements = document.querySelectorAll(".important");
-// for(var i=0; i<elements.length; i++)
-//         {
-//         var ele = elements[i];
-//         ele.title = "This is an important item";
-//         }
+let article = document.querySelector("main > article");
+let learners = ["Jean", "Jacques", "Paul", "Louise", "Marie", "Thérèse"];
 
-// /* Select all the img tags and loop through them. If they have no important class, turn their display property to none */
+learners.sort(() => Math.random() - 0.5);
 
-// const img = document.querySelectorAll("img");
+learners.forEach((learner) => {
 
-// for (let element of img) {
-// 	if (element.classList.contains("important")) {
-// 		element.style.display = "block";
-// 	}
-// 	else {
-// 		element.style.display = "none";
-// 	}
-// }
+    // create a section
+    let section = document.createElement('section');
+    // create a paragraphe
+    let paragraph = document.createElement('p');
+    // insert text in paragraph
+    paragraph.innerText = learner
+    // insert paragraph inside section
+    section.appendChild(paragraph);
+    // insert section inside article
+    article.appendChild(section);
+    // console.log(section)
 
+    let r = Math.floor(Math.random() * 255) + 1;
+    let g = Math.floor(Math.random() * 255) + 1;
+    let b = Math.floor(Math.random() * 255) + 1;
 
-// //Loop through all the paragraphs and display their content in the console. If the paragraph has a class, display its classname as well
+    section.style.background = "rgb(" + r + ", " + g + ", " + b + ")"
 
-// var para = document.querySelectorAll("p");
-
-// for (let element of para) {
-// 	console.log(element.innerText);
-// 	console.log(element.className);
-// }
-
-
-// Give each of the paragraph a random text color (different for each one) UNLESS it has a class then leave it as it is.
-
-var para = document.querySelectorAll("p");
-
-for (let element of para) {
-	function getRandomColor() {
-		var r = Math.floor(Math.random() * 255);
-		var g = Math.floor(Math.random() * 255);
-		var b = Math.floor(Math.random() * 255);
-		var color = "rgb(" + r + ", " + g + ", " + b + ")";
-		element.style.color = color;
-}
-getRandomColor();
-}
+    paragraph.style.color = ((0.3 * r) + (0.59 * g) + (0.11 * b) <= 128) ? '#FFF' : '#000';
+})
