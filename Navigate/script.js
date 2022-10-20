@@ -1,55 +1,38 @@
-// // Select the last child of the <ol> tag and put it at the beginning of the list
 
-const organisedTag = document.querySelector("ol");
-console.log(organisedTag);
-console.table(organisedTag);
+//Select the last child of the <ol> tag and put it at the beginning of the list
 
-// const lastChildOL = organisedTag.lastChild
-console.table(lastChildOL);
+const list = document.querySelector('ol')
+const a = list.lastElementChild
+const b = list.firstElementChild
 
-const lastChildOL = organisedTag.lastElementChild
-console.log(lastChildOL.innerText)
-organisedTag.insertBefore(lastChildOL, organisedTag.children[0])
+b.appendChild(a)
+// last child will go on 2nd place (position [1]) so we need to use insertBefore to switch
+
+list.insertBefore(a,list.firstElementChild)
 
 
-// // Move the <h2> of the third section in the second one and vice-versa
+//Move the <h2> of the third section in the second one and vice-versa
+const titlehdeux = document.querySelectorAll("section");
 
-const main = document.querySelector("main");
-console.log(main);
+// console.log(titlehdeux)
 
-const secondSection = main.children[1];
-console.log(secondSection); 
-const troisiemeSection = main.lastElementChild;
-console.log(troisiemeSection);
 
-const divTroisiemeSection = troisiemeSection.firstElementChild;
 
-const secondTitre = document.querySelector("div > h2")
-console.log(troisiemeTitre)
-const troisiemeTitre = secondSection.firstElementChild;
-console.log(secondTitre);
+const title1 = titlehdeux[1].children[0]
+console.log(title1)
+const title2 = document.querySelector("div > h2")
+console.log(title2)
 
-// swap the two titles
+// titlehdeux.insertBefore(title1,titlehdeux.children[])
 
-secondSection.insertBefore(secondTitre, secondSection.children[0]);
-divTroisiemeSection.insertBefore(troisiemeTitre, divTroisiemeSection.children[0]);
 
-const secondSection = main.children[1];
-console.log(secondSection);
-const troisiemeSection = main.lastElementChild;
-console.log(troisiemeSection);
 
-const divtroisiemeSection = troisiemeSection.firstElementChild;
+title2.after(title1)
 
-const secondTitle = document.querySelector("div > h2")
-console.log(troisiemeTitre)
-const troisiemeTitre = secondSection.firstElementChild;
-console.log(secondTitre);
+// title1.appendChild(title2)
 
-// swap the two titles
-secondSection.insertBefore(secondTitre, secondSection.children[0]);
-divTroisiemeSection.insertBefore(troisiemeTitre, divTroisiemeSection.children[0]);
+// Delete the last section from the DOM, we don't need it anyways
 
-// // Delete the last section from the DOM, we don't need it anyways
-
-// main.removeChild(thirdSection)
+// const rmv = document.querySelector('section:last-child');
+// console.log(rmv)
+// rmv.parentElement.removeChild(rmv);
