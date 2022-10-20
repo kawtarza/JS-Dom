@@ -3,7 +3,7 @@
 // // Find a way so that everytime you load the page the order of the elements changes!
 
 let article = document.querySelector("main > article");
-let learners = ["Jean", "Jacques", "Paul", "Louise", "Marie", "Thérèse"];
+let learners = ["Louis", "Abdel", "Lou", "Maria"];
 
 learners.sort(() => Math.random() - 0.5);
 
